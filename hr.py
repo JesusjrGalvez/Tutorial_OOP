@@ -1,3 +1,6 @@
+from abc import ABC, abstractmethod
+
+
 class PayrollSystem:
     def calculate_payroll(self, employees):
         print('Calculating Payroll')
@@ -43,3 +46,54 @@ class CommissionEmployee(SalaryEmployee):
         fixed = super().calculate_payroll()
         return fixed + self.commission
 
+
+class Employee:
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+        @abstractmethod
+        def calculate_payroll(self):
+            pass
+        # The abc module in the Python standard library provides functionality to prevent creating
+        # objects from abstract base classes.
+
+        # You can modify the implementation of the Employee class to ensure that it can’t be instantiated:
+
+
+class DisgruntledEmployee:
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+    def calculate_payroll(self):
+        return 1000000
+
+
+class Manager(SalaryEmployee):
+    def work(self, hours):
+        print(f'{self.name} screams and yells for {hours} hours.')
+
+
+class Secretary(SalaryEmployee):
+    def work(self, hours):
+        print(f'{self.name} expends {hours} hours doing office paperwork.')
+
+
+class SalesPerson(CommissionEmployee):
+    def work(self, hours):
+        print(f'{self.name} expends {hours} hours on the phone.')
+
+
+class FactoryWorker(HourlyEmployee):
+    def work(self, hours):
+        print(f'{self.name} manufactures gadgets for {hours} hours.')
+
+
+class ProductivitySystem:
+    def track(self, employees, hours):
+        print('Tracking Employee Productivity')
+        print('==============================')
+        for employee in employees:
+            employee.work(hours)
+        print('')
