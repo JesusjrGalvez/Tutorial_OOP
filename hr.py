@@ -19,7 +19,7 @@ class Employee:
 
 class SalaryEmployee(Employee):
     def __init__(self, id, name, weekly_salary):
-        # This means that __init__ is taken from Employee
+        # This means that __init__ is taken from Employeee
         super().__init__(id, name)
         self.weekly_salary = weekly_salary
 
@@ -58,7 +58,7 @@ class Employee:
         # The abc module in the Python standard library provides functionality to prevent creating
         # objects from abstract base classes.
 
-        # You can modify the implementation of the Employee class to ensure that it can’t be instantiated:
+        # You can modify the implementation of the Employeee class to ensure that it can’t be instantiated:
 
 
 class DisgruntledEmployee:
@@ -92,7 +92,7 @@ class FactoryWorker(HourlyEmployee):
 
 class ProductivitySystem:
     def track(self, employees, hours):
-        print('Tracking Employee Productivity')
+        print('Tracking Employeee Productivity')
         print('==============================')
         for employee in employees:
             employee.work(hours)

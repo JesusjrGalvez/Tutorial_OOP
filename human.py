@@ -2,15 +2,32 @@
 class Human:
     all = []
     growth = 1.1
-    def __init__(self, name, height, weight):
-        self.name = name
+    def __init__(self, name: str, height: float, weight: float):
+        self.__name = name
         self.height = height
         self.weight = weight
         Human.all.append(self)
-        #self.bmi = bmi
+
+    # This encapsulates attributes.
+    # Property Decorator. Read-Only Attribute
+    @property
+    def name(self):
+        return self.__name
+
+    # This how to change an encapsulated attribute.
+    # @name.setter
+    # def set_name(self, new_name):
+    #     self.__name = new_name
+
+    # This also works.
+    @name.setter
+    def name(self, name): # ERROR AttributeError: can't set attribute
+        self.__name = name
+
     def __repr__(self):
         #__repr__ stands for represent
-        return f"Human('{self.name}',{self.height},{self.weight})"  #represent as f-strings
+        #return f"Human('{self.name}',{self.height},{self.weight})"  #represent as f-strings
+        return f"{self.__class__.__name__}('{self.name}',{self.height},{self.weight})"
 
     def calculate_bmi(self):
         # You can have a class create an attribute when a method is called.
@@ -18,6 +35,11 @@ class Human:
         print(f"BMI = {self.weight/(self.height*0.01 * self.height *0.01)}")
     def grow(self):
         self.height = self.height * self.growth
+
+    # Property decorator = Read-only Attribute.
+    @property
+    def read_only(self):
+        return "AAA"
 
     @classmethod # This is a class method. It works without any instances. You
     # can prompt it without any instances. It is typically used to
@@ -73,23 +95,35 @@ def print_hi(name):
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-    jesus = Human("Jesus", 183, 82)
-    print(Human.all)
-    maria = Human("Maria", 160, 48)
-    print(Human.all)
-    print(f"Human name is {jesus.name}, human height is {jesus.height}")
-    print(jesus.height)
-    jesus.calculate_bmi()
-    jesus.growth=2
-    jesus.grow()
-    print(jesus.height)
-    print(maria.growth)
-    print(f"Grwoth is {jesus.growth}")
-    #print(jesus.bmi)
-    jesus.calculate_bmi()
-    print(jesus.bmi)
+#if __name__ == '__main__':
+jesus = Human("Jesus", 183, 82)
+print(Human.all)
+maria = Human("Maria", 160, 48)
+print(Human.all)
+print(f"Human name is {jesus.name}, human height is {jesus.height}")
+print(jesus.height)
+jesus.calculate_bmi()
+jesus.growth=2
+jesus.grow()
+print(jesus.height)
+print(maria.growth)
+print(f"Grwoth is {jesus.growth}")
+jesus.calculate_bmi()
+print(jesus.bmi)
+print(type(jesus))
+nazaret = Child("Nazaret", 100, 30)
+print("--------")
+print(Human.all)
+print(nazaret)
+print(jesus.read_only)
+
+print("--------")
+print(jesus.name)
+
+# jesus.read_only = "BBB" # This returns an error
+
+
+
 
 
 #Human.instanciate_people()
@@ -125,4 +159,23 @@ print(a)
 print(Human.is_integer(7.5))
 print(Human.is_integer(8.0))
 print(Human.is_integer(9))
+
+
+print("Hola como estas")
+
+print(jesus.name)
+#jesus.set_name("javi")
+print(jesus.name)
+jesus.set_name = "javi"
+print(jesus.name)
+#jesus.name = "Tommy"
+print(jesus.name)
+jesus.__name = "Tom"
+print(jesus.name)
+print(";.......")
+print(jesus.__name)
+print(jesus.name)
+#jesus.set_name("Tommy")
+#print(jesus.name)
+
 

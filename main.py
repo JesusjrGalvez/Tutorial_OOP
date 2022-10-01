@@ -4,27 +4,31 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import csv
 import helper
-import hr_02
+#import hr_02
 
-import hr
+#import human
+import getters_setters
+
+
+#import hr
 #import polygons
 #import polygons_final
 
 
-#3TEST 1
-salary_employee = hr.SalaryEmployee(1, 'John Smith', 1500)
-tem = hr.SalaryEmployee(5, "jim", 2000)
-sr = hr.SalaryEmployee(4, "Patty", 2000)
-hourly_employee = hr.HourlyEmployee(2, 'Jane Doe', 40, 15)
-commission_employee = hr.CommissionEmployee(3, 'Kevin Bacon', 1000, 250)
-disgruntled_employee = hr.DisgruntledEmployee(20000, 'Anonymous')
-payroll_system = hr.PayrollSystem()
-payroll_system.calculate_payroll([
-    salary_employee,
-    hourly_employee,
-    commission_employee,
-    disgruntled_employee
-])
+# #3TEST 1
+# salary_employee = hr.SalaryEmployee(1, 'John Smith', 1500)
+# tem = hr.SalaryEmployee(5, "jim", 2000)
+# sr = hr.SalaryEmployee(4, "Patty", 2000)
+# hourly_employee = hr.HourlyEmployee(2, 'Jane Doe', 40, 15)
+# commission_employee = hr.CommissionEmployee(3, 'Kevin Bacon', 1000, 250)
+# disgruntled_employee = hr.DisgruntledEmployee(20000, 'Anonymous')
+# payroll_system = hr.PayrollSystem()
+# payroll_system.calculate_payroll([
+#     salary_employee,
+#     hourly_employee,
+#     commission_employee,
+#     disgruntled_employee
+# ])
 
 
 # # TEST 2
@@ -43,11 +47,15 @@ payroll_system.calculate_payroll([
 # payroll_system = hr.PayrollSystem()
 # payroll_system.calculate_payroll(employees)
 
-# TEST 3
-# salary_employee2 = hr_02.EmployeeSalary1(4, "Jim", 3030)
+#TEST 3
+# salary_employee2 = hr_02.EmployeeeSalary1(4, "Jim", 3030)
+# tem = hr_02.SalaryEmployee(1, "Tom", 2000)
 # hourly_employee = hr_02.HourlySalary(4, "Paty", 40, 20)
 # commission_employee = hr_02.ComissionSalary(4)
-# salary_employee = hr_02.EmployeeSalary1(1, "Tom", 3000)
+# salary_employee = hr_02.EmployeeeSalary1(1, "Tom", 3000)
 #
 # payroll_system = hr_02.Calculate_Payroll()
 # payroll_system.calculatePay()
+
+
+

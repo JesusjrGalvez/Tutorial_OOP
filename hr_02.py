@@ -1,12 +1,12 @@
-class Employee:
+class Employeee:
     def __init__(self, id, name):
         self.id = id
         self.name = name
 
 
-class EmployeeSalary(Employee):
+class SalaryEmployee(Employeee):
     def __init__(self, id, name, weekly_salary):
-        # This means that __init__ is taken from Employee
+        # This means that __init__ is taken from Employeee
         super().__init__(id, name)
         self.weekly_salary = weekly_salary
 
@@ -14,8 +14,7 @@ class EmployeeSalary(Employee):
         return self.weekly_salary
 
 
-
-class EmployeeSalary1(Employee):
+class EmployeeeSalary1(Employeee):
     def __init(self, id, name, monthly_salary):
         super().__init__(id, name)
         self.monthly_salary = monthly_salary
@@ -24,7 +23,7 @@ class EmployeeSalary1(Employee):
         return self.monthly_salary
 
 
-class HourlySalary(Employee):
+class HourlySalary(Employeee):
     def __init__(self, id, name, hours, hourly_pay):
         super().__init__(id, name)
         self.hours = hours
