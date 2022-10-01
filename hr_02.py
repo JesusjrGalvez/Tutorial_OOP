@@ -5,6 +5,17 @@ class Employee:
 
 
 class EmployeeSalary(Employee):
+    def __init__(self, id, name, weekly_salary):
+        # This means that __init__ is taken from Employee
+        super().__init__(id, name)
+        self.weekly_salary = weekly_salary
+
+    def calculate_payroll(self):
+        return self.weekly_salary
+
+
+
+class EmployeeSalary1(Employee):
     def __init(self, id, name, monthly_salary):
         super().__init__(id, name)
         self.monthly_salary = monthly_salary
