@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+import hr
+
 
 class PayrollSystem:
     def calculate_payroll(self, employees):
@@ -47,14 +49,15 @@ class CommissionEmployee(SalaryEmployee):
         return fixed + self.commission
 
 
-class Employee:
+# This makes the class abstract. Abstract base classes exist to be inherited, but never instantiated.
+class Employee(ABC):
     def __init__(self, id, name):
         self.id = id
         self.name = name
 
-        @abstractmethod
-        def calculate_payroll(self):
-            pass
+    @abstractmethod
+    def calculate_payroll(self):
+        pass
         # The abc module in the Python standard library provides functionality to prevent creating
         # objects from abstract base classes.
 
@@ -97,3 +100,29 @@ class ProductivitySystem:
         for employee in employees:
             employee.work(hours)
         print('')
+
+
+salary_employee = SalaryEmployee(1, 'John Smith', 1500)
+hourly_employee = HourlyEmployee(2, 'Jane Doe', 40, 15)
+commission_employee = CommissionEmployee(3, 'Kevin Bacon', 1000, 250)
+payroll_system = PayrollSystem()
+payroll_system.calculate_payroll([
+    salary_employee,
+    hourly_employee,
+    commission_employee
+])
+
+manager = Manager(1, 'Mary Poppins', 3000)
+secretary = Secretary(2, 'John Smith', 1500)
+sales_guy = SalesPerson(3, 'Kevin Bacon', 1000, 250)
+factory_worker = FactoryWorker(2, 'Jane Doe', 40, 15)
+employees = [
+    manager,
+    secretary,
+    sales_guy,
+    factory_worker,
+]
+productivity_system = ProductivitySystem()
+productivity_system.track(employees, 40)
+payroll_system = PayrollSystem()
+payroll_system.calculate_payroll(employees)

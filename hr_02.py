@@ -15,7 +15,7 @@ class SalaryEmployee(Employeee):
 
 
 class EmployeeeSalary1(Employeee):
-    def __init(self, id, name, monthly_salary):
+    def __init__(self, id, name, monthly_salary):
         super().__init__(id, name)
         self.monthly_salary = monthly_salary
 

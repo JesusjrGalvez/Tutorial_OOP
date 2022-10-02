@@ -12,13 +12,41 @@ class Human:
         self.__name = new_name
         return self.__name
 
+# https://stackoverflow.com/questions/4555932/public-or-private-attribute-in-python-what-is-the-best-way
+class Foo():
+    def __init__(self):
+        self.__attr = 0
 
-jesus = Human("Jesus", 183)
+    @property
+    def attr(self):
+        return self.__attr
+
+    @attr.setter
+    def attr(self, value):
+        self.__attr = value
+
+    @attr.deleter
+    def attr(self):
+        del self.__attr
+
+
+
+
+f = Foo()
+print(f.attr)
+print(f.__dict__)
+f.__attr = 1
+print(f.attr)
+print(f.__dict__)
+#print(f.__attr)
+
+'__attr' in f.__dir__()
+
+#f.__getattribute__('__attr')
+
+
+jesus = Human("Jesus", 185)
 print(jesus.name)
-#print(jesus.__name)
-#jesus.name = "tom"
-print(jesus.name)
-jesus.__name = "Jim"
-print()
-jesus.set_name("James")
-print(jesus.name)
+print(jesus.__dict__)
+jesus.__name = "Tom"
+print(jesus.__name)
